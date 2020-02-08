@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<h1>Поиск</h1>
+
+<form method="post" asp-action="Search" asp-controller="Home">
+    <p></p>
+    <div class="form-group">
+        <input type="text" class="form-control" name="SerachName" placeholder="Поиск по имени">
+    </div>
+    <select name="SearchParam">
+        <option value="1" selected>Поиск по фото</option>
+        <option value="2">Поиск по альбомам</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Поиск</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    @foreach (var p in ViewBag.Result)
+    {
+        @if (ViewBag.Type == "1")
+        { 
+            <div>
+                <h4>@p.Name</h4>
+                @if (((Photo)p).ImageData != null)
+                {
+                    <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(p.ImageData))" />
+                }
+            </div>
+        }
+        else
+        {
+            <p>
+                @Html.ActionLink(((Album)p).Name, "ViewAlbun", "Home", new { id = p.Id });
+            </p>
+        }
+
+     }
+}

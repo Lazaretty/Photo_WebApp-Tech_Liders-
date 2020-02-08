@@ -1,0 +1,171 @@
+create table [Photo]
+(
+	Id int IDENTITY(1,1),
+	AuthorId int,
+	[Name] nvarchar(255),
+	[CameraName] nvarchar(255),
+	[ShootingParameters] nvarchar(255),
+	[Category] nvarchar(255),
+	[Photo] varbinary(MAX)
+)
+
+create table Album (
+	Id int IDENTITY(1,1),
+	UserId int,
+	[Name] nvarchar(255),
+	)
+
+create table PhotosInAlbum (
+	AlbumId int,
+	PhotoId int,
+	)
+
+	create table [User](
+	ID int IDENTITY(1,1) Primary key,
+	Email nvarchar(255),
+	Password nvarchar(255),
+	NickName nvarchar(255)
+);
+// Хранимые процедуры
+....
+Добавить фото
+....
+USE Photo_WebApp_DB
+GO
+create procedure AddPhoto
+	@Category nvarchar(255),
+	@Name nvarchar(255),
+	@CameraName nvarchar(255),
+	@ShootingParameters nvarchar(255),
+	@ImageData varbinary(max),
+	@AuthorId int
+as
+insert into Photo([Name],CameraName,ShootingParameters,Category,ImageData, AuthorId)
+values (@Name,@CameraName,@ShootingParameters, @Category, @ImageData, @AuthorId)
+....
+Показать все фото 
+....
+USE Photo_WebApp_DB
+GO
+create procedure GetAllPhotos
+	
+as
+select * 
+from Photo
+
+....
+Показать все альбомы
+....
+USE Photo_WebApp_DB
+GO
+create procedure GetNamesOfAllAlbums
+	
+as
+select * 
+from Album
+....
+Добавить альбом
+....
+USE Photo_WebApp_DB
+GO
+create procedure AddAlbum
+	@UserId int,
+	@Name nvarchar(255)
+as
+insert into Album([Name],UserId)
+values (@Name,@UserId)
+
+....
+Показать все фото альбома
+....
+
+USE Photo_WebApp_DB
+GO
+create procedure GetPhotosFromAlbum
+	@AlbumId int
+as
+select * 
+from Photo 
+Where Id = any(select PhotoId from PhotosInAlbum where AlbumId = @AlbumId)
+
+....
+Выбрать альбом по Id
+....
+USE Photo_WebApp_DB
+GO
+create procedure GetAlbumById
+	@AlbumId int
+as
+select * 
+from Album 
+Where Id = @AlbumId
+
+....
+Добавить фото в альбом
+....
+USE Photo_WebApp_DB
+GO
+create procedure AddPhotoToAlmum
+	@AlbumId int,
+	@PhotoId int
+as
+insert into PhotosInAlbum (AlbumId, PhotoId)
+values (@AlbumId, @PhotoId)
+
+....
+Проверка: зарегестрирован ли пользователь 
+....
+create procedure IsRegisted 
+	@EM nvarchar(255)
+as
+select * 
+from [User]
+where Email = @EM
+
+
+....
+Добавить нового пользователя
+....
+CREATE procedure [AddUser] 
+	@Email nvarchar(255),
+	@Password nvarchar(255),
+	@Nickname nvarchar(255)
+as
+insert into [User](Email, [Password], NickName)
+values (@Email,@Password,@Nickname)
+
+....
+Показать все фотографии пользоватля
+....
+USE Photo_WebApp_DB
+GO
+create procedure GetUsersPhotos
+	@UserId int
+as
+select * 
+from Photo
+Where AuthorId = @UserId
+
+....
+Поиск по названию фотографии
+....
+USE Photo_WebApp_DB
+GO
+create procedure SearchPhotos
+	@SerachName varchar(255)
+as
+select * 
+from Photo
+where [Name] = @SerachName
+
+....
+Поиск по названию альбома
+....
+USE Photo_WebApp_DB
+GO
+create procedure SearchAlbums
+	@SerachName varchar(255)
+as
+select * 
+from Album
+where [Name] = @SerachName

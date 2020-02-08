@@ -1,0 +1,29 @@
+﻿@model Photo_WebApp.Models.PhotoViewModel
+
+<form asp-action="Edit" asp-controller="Home" method="post" enctype="multipart/form-data">
+    <p>
+        <label asp-for="Name">Название фото</label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="CameraName">Названия камеры</label>
+        <input type="text" asp-for="CameraName" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="ShootingParameters">Параметры съемки</label>
+        <input type="text" asp-for="ShootingParameters" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="Category">Категория</label>
+        <input type="text" asp-for="Category" class="form-control" />
+    </p>
+    <p>
+        <label asp-for="ImageData">Фото</label>
+        <input type="file" asp-for="ImageData" class="form-control" />
+    </p>
+
+    <div>
+        <p></p>
+        <input type="submit" value="Добаить фото" class="btn btn-primary" />
+    </div>
+</form>
