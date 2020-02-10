@@ -1,0 +1,33 @@
+----------------------------------------------
+----------Описание таблиц---------------------
+----------------------------------------------
+USE Photo_WebApp_DB
+GO
+create table [Photo]
+(
+	Id int IDENTITY(1,1),
+	AuthorId int,
+	[Name] nvarchar(255),
+	[CameraName] nvarchar(255),
+	[ShootingParameters] nvarchar(255),
+	[Category] nvarchar(255),
+	[Photo] varbinary(MAX)
+)
+GO
+create table Album (
+	Id int IDENTITY(1,1),
+	UserId int,
+	[Name] nvarchar(255),
+	)
+GO
+create table PhotosInAlbum (
+	AlbumId int,
+	PhotoId int,
+	)
+GO
+create table [User](
+	ID int IDENTITY(1,1) Primary key,
+	Email nvarchar(255),
+	Password nvarchar(255),
+	NickName nvarchar(255)
+);

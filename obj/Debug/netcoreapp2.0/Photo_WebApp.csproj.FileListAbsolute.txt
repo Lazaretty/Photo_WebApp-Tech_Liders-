@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\bin\Debug\netcoreapp2.0\Photo_WebApp.deps.json
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\bin\Debug\netcoreapp2.0\Photo_WebApp.runtimeconfig.json
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\bin\Debug\netcoreapp2.0\Photo_WebApp.runtimeconfig.dev.json
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\bin\Debug\netcoreapp2.0\Photo_WebApp.dll
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\bin\Debug\netcoreapp2.0\Photo_WebApp.pdb
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\obj\Debug\netcoreapp2.0\Photo_WebApp.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\obj\Debug\netcoreapp2.0\Photo_WebApp.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\obj\Debug\netcoreapp2.0\Photo_WebApp.AssemblyInfo.cs
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\obj\Debug\netcoreapp2.0\Photo_WebApp.dll
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\obj\Debug\netcoreapp2.0\Photo_WebApp.pdb
+C:\Users\user\source\repos\Photo_WebApp\Photo_WebApp\obj\Debug\netcoreapp2.0\Photo_WebApp.csprojAssemblyReference.cache
