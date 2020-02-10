@@ -15,7 +15,7 @@ create procedure AddPhoto
 	@ImageData varbinary(max),
 	@AuthorId int
 as
-insert into Photo([Name],CameraName,ShootingParameters,Category,Photo, AuthorId)
+insert into Photo([Name],CameraName,ShootingParameters,Category,ImageData, AuthorId)
 values (@Name,@CameraName,@ShootingParameters, @Category, @ImageData, @AuthorId)
 
 ----------Показать все фото-----------------------
@@ -31,7 +31,7 @@ from Photo
 ----------Показать все альбомы-----------------------
 
 GO
-create procedure GetNamesOfAllAlbums
+create procedure GetAllAlbums
 	
 as
 select * 
@@ -122,3 +122,4 @@ as
 select * 
 from Photo
 where [Name] = @SerachName
+

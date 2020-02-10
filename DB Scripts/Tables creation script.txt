@@ -11,7 +11,7 @@ create table [Photo]
 	[CameraName] nvarchar(255),
 	[ShootingParameters] nvarchar(255),
 	[Category] nvarchar(255),
-	[Photo] varbinary(MAX)
+	[ImageData] varbinary(MAX)
 )
 GO
 create table Album (

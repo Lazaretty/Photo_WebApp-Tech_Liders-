@@ -33,3 +33,22 @@
         display: none;
     }
 }
+
+.popup_fast {
+    width: 80px;
+    height: 60px;
+    display: block;
+}
+
+
+.popup_fast_block {
+   
+    background: #f5eee1;
+    z-index: 100;
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+}
